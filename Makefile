@@ -1,7 +1,7 @@
 NAME = so_long
-CC = gcc
+CC = cc
 PRINTF = ./printf/libftprintf.a
-FLAGS = -Wall -Wextra -Werror -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -fPIC
 SRC = src/so_long.c src/check_content_wall.c src/check_route_rect.c \
 		src/drawmap.c src/hooks_closes.c src/check_collect_win.c\
 		src/move_right_left.c src/move_up_down.c\
