@@ -6,7 +6,7 @@
 /*   By: asomanah <asomanah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:49:41 by asomanah          #+#    #+#             */
-/*   Updated: 2024/07/08 11:38:05 by asomanah         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:56:34 by asomanah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,12 @@ void	read_map(char **argv, t_map *map)
 	map->fd = open(argv[1], O_RDONLY);
 	if (map->fd < 0)
 	{
-		printf("ERROR <Map doesnt open> \n");
+		ft_printf("ERROR <Map doesnt open> \n");
 		exit(1);
 	}
 	while (map->j < map->i)
 	{
 		map->str[map->j] = get_next_line(map->fd);
-		printf("%s\n", map->str[map->j]);
 		map->j++;
 	}
 	map->str[map->j] = NULL;
@@ -74,7 +73,7 @@ int	check_lines(char **argv, t_map *map)
 	map->fd = open(argv[1], O_RDONLY);
 	if (map->fd < 0)
 	{
-		printf("ERROR <Map doesnt open> \n");
+		ft_printf("ERROR <Map doesnt open> \n");
 		exit(1);
 	}
 	map->buff = get_next_line(map->fd);
