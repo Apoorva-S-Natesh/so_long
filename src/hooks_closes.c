@@ -23,15 +23,15 @@ int	on_destroy(t_map *map)
 
 int	move_loop(int keycode, t_map *map)
 {
-	if (keycode == 53 || keycode == 113)
+	if (keycode == 65307 || keycode == 113)
 		on_destroy(map);
-	else if (keycode == 13 || keycode == 126 || keycode == 119)
+	else if (keycode == 65362 || keycode == 119)
 		ft_move_up(map);
-	else if (keycode == 1 || keycode == 125 || keycode == 115)
+	else if (keycode == 65364 || keycode == 115)
 		ft_move_down(map);
-	else if (keycode == 2 || keycode == 124 || keycode == 100)
+	else if (keycode == 65363 || keycode == 100)
 		ft_move_right(map);
-	else if (keycode == 0 || keycode == 123 || keycode == 97)
+	else if (keycode == 65361 || keycode == 97)
 		ft_move_left(map);
 	ft_place_image(map);
 	return (0);
