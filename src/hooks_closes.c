@@ -1,0 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hooks_closes.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asomanah <asomanah@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/08 11:33:32 by asomanah          #+#    #+#             */
+/*   Updated: 2024/07/08 13:02:35 by asomanah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../so_long.h"
+
+int	on_destroy(t_map *map)
+{
+	mlx_destroy_window(map->mlx, map->win);
+	mlx_destroy_display(map->mlx);
+	ft_closemap(map);
+	exit(1);
+	return (0);
+}
+
+int	move_loop(int keycode, t_map *map)
+{
+	if (keycode == 53 || keycode == 113)
+		on_destroy(map);
+	else if (keycode == 13 || keycode == 126 || keycode == 119)
+		ft_move_up(map);
+	else if (keycode == 1 || keycode == 125 || keycode == 115)
+		ft_move_down(map);
+	else if (keycode == 2 || keycode == 124 || keycode == 100)
+		ft_move_right(map);
+	else if (keycode == 0 || keycode == 123 || keycode == 97)
+		ft_move_left(map);
+	ft_place_image(map);
+	return (0);
+}
+
+int	ft_closemap(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	if (map->str)
+	{
+		while (i < map->len)
+		{
+			if (map->str[i])
+			{
+				free(map->str[i]);
+				map->str[i] = NULL;
+			}
+			i++;
+		}
+	}
+	free(map->str);
+	exit(1);
+	return (0);
+}
+
+void	ft_close_cpy(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	if (map->copy_str)
+	{
+		while (i < map->len)
+		{
+			if (map->copy_str[i])
+			{
+				free(map->copy_str[i]);
+				map->copy_str[i] = NULL;
+			}
+			i++;
+		}
+	}
+	free(map->copy_str);
+}
