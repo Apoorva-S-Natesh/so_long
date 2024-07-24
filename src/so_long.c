@@ -6,7 +6,7 @@
 /*   By: asomanah <asomanah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:49:41 by asomanah          #+#    #+#             */
-/*   Updated: 2024/07/08 13:56:34 by asomanah         ###   ########.fr       */
+/*   Updated: 2024/07/12 17:00:17 by asomanah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	check_lines(char **argv, t_map *map)
 	map->fd = open(argv[1], O_RDONLY);
 	if (map->fd < 0)
 	{
-		ft_printf("ERROR <Map doesnt open> \n");
+		ft_printf("\033[0;31mERROR <Map doesnt open> %s\033[0m\n");
 		exit(1);
 	}
 	map->buff = get_next_line(map->fd);

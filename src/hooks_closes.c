@@ -14,10 +14,18 @@
 
 int	on_destroy(t_map *map)
 {
+	mlx_destroy_image(map->mlx, map->pl);
+	mlx_destroy_image(map->mlx, map->wall);
+	mlx_destroy_image(map->mlx, map->esc);
+	mlx_destroy_image(map->mlx, map->background);
+	mlx_destroy_image(map->mlx, map->collect);
 	mlx_destroy_window(map->mlx, map->win);
+	map->win = NULL;
 	mlx_destroy_display(map->mlx);
+	free(map->mlx);
+	map->mlx = NULL;
 	ft_closemap(map);
-	exit(1);
+	exit(0);
 	return (0);
 }
 
@@ -55,7 +63,6 @@ int	ft_closemap(t_map *map)
 		}
 	}
 	free(map->str);
-	exit(1);
 	return (0);
 }
 

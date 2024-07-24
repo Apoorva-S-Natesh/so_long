@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_enemy_move.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asomanah <asomanah@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/12 13:11:14 by asomanah          #+#    #+#             */
+/*   Updated: 2024/07/12 13:37:45 by asomanah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../so_long_bonus.h"
 
 void	find_player(t_map *map)
@@ -48,16 +60,17 @@ void	ft_enemy_movement(t_map *map, int i, int j)
 		map->str[i][j] = '0';
 	}
 }
+
 void	ft_horizontal_movement(t_map *map, int i, int j)
 {
 	if ((map->player_j < j) && (map->str[i][j - 1] != '1') && 
 			(map->str[i][j - 1] != 'E') && (map->str[i][j - 1] != 'C') && 
 			(map->str[i][j - 1] != 'R') && (map->str[i][j - 1] != 'P'))
-			map->j--;
-		else if ((map->player_j > j) && (map->str[i][j + 1] != '1') && 
+		map->j--;
+	else if ((map->player_j > j) && (map->str[i][j + 1] != '1') && 
 			(map->str[i][j + 1] != 'E') && (map->str[i][j + 1] != 'C') && 
 			(map->str[i][j + 1] != 'R') && (map->str[i][j + 1] != 'P'))
-			map->j++;
+		map->j++;
 }
 
 void	ft_enemy_movement_all(t_map *map)

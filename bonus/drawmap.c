@@ -6,7 +6,7 @@
 /*   By: asomanah <asomanah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:22:59 by asomanah          #+#    #+#             */
-/*   Updated: 2024/07/08 11:24:05 by asomanah         ###   ########.fr       */
+/*   Updated: 2024/07/12 13:11:41 by asomanah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	ft_check_img(t_map *map, void *ptr)
 	}
 }
 
-
 void	ft_draw_image(t_map *map)
 {
 	if (map->str[map->i][map->j] == '0')
@@ -75,8 +74,8 @@ void	ft_draw_image(t_map *map)
 	}
 	else
 		ft_draw_image2(map);
-	
 }
+
 void	ft_draw_image2(t_map *map)
 {
 	if (map->str[map->i][map->j] == 'E')
@@ -108,5 +107,6 @@ void	ft_drawmap(t_map *map)
 		exit (1);
 	}
 	ft_load_img(map);
+	ft_load_animation(map);
 	ft_place_image(map);
 }

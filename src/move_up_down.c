@@ -25,7 +25,7 @@ void	ft_move_up(t_map *map)
 		{
 			if (map->str[i][j] == 'P')
 			{
-				if (map->str[i - 1][j] == '0')
+				if (map->str[i - 1][j] == '0' || map->str[i - 1][j] == 'C')
 				{
 					map->str[i - 1][j] = 'P';
 					map->str[i][j] = '0';
@@ -42,13 +42,7 @@ void	ft_move_up(t_map *map)
 
 void	ft_move_up2(t_map *map, int i, int j)
 {
-	if (map->str[i - 1][j] == 'C')
-	{
-		map->str[i - 1][j] = 'P';
-		map->str[i][j] = '0';
-		ft_printf("MOVES : %d \n", ++map->move);
-	}
-	else if (map->str[i - 1][j] == 'E')
+	if (map->str[i - 1][j] == 'E')
 	{
 		if ((ft_check_collect(map)) == 0)
 		{
@@ -59,10 +53,7 @@ void	ft_move_up2(t_map *map, int i, int j)
 		}
 	}
 	else if (map->str[i - 1][j] == '1')
-	{
-		ft_printf("cannot move, wall ahead \n");
 		return ;
-	}
 }
 
 void	ft_move_down(t_map *map)
@@ -78,7 +69,7 @@ void	ft_move_down(t_map *map)
 		{
 			if (map->str[i][j] == 'P')
 			{
-				if (map->str[i + 1][j] == '0')
+				if (map->str[i + 1][j] == '0' || map->str[i + 1][j] == 'C')
 				{
 					map->str[i + 1][j] = 'P';
 					map->str[i][j] = '0';
@@ -95,13 +86,7 @@ void	ft_move_down(t_map *map)
 
 void	ft_move_down2(t_map *map, int i, int j)
 {
-	if (map->str[i + 1][j] == 'C')
-	{
-		map->str[i + 1][j] = 'P';
-		map->str[i][j] = '0';
-		ft_printf("MOVES : %d \n", ++map->move);
-	}
-	else if (map->str[i + 1][j] == 'E')
+	if (map->str[i + 1][j] == 'E')
 	{
 		if ((ft_check_collect(map)) == 0)
 		{

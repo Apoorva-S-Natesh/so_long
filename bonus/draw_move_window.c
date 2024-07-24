@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_move_window.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asomanah <asomanah@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/12 13:00:05 by asomanah          #+#    #+#             */
+/*   Updated: 2024/07/12 13:00:07 by asomanah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../so_long_bonus.h"
 
 void	ft_place_image(t_map *map)
@@ -25,21 +37,21 @@ void	ft_drawmove(t_map *map)
 {
 	char	*move_str;
 	char	*display_str;
-	
+
 	move_str = ft_itoa(map->move);
 	if (!move_str)
 	{
 		ft_printf("Error converting move count to string\n");
-		return;
+		return ;
 	}
 	display_str = (char *)malloc(sizeof(char) * (ft_strlen("MOVES: ") + 
-		ft_strlen(move_str) + 1));
+				ft_strlen(move_str) + 1));
 	if (!display_str)
 	{
 		free(move_str);
 		ft_printf("Error allocating memory for display string\n");
 		ft_closemap(map);
-		return;
+		return ;
 	}
 	ft_drawmove2(map, display_str, move_str);
 	free(move_str);
@@ -65,7 +77,7 @@ void	ft_drawmove2(t_map *map, char *display_str, char *move_str)
 		while (dy <= 0)
 		{
 			mlx_string_put(map->mlx, map->win, (20 + dx), (20 + dy), 
-			0x800000, display_str);
+				0x800000, display_str);
 			dy++;
 		}
 		dx++;

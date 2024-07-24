@@ -2,7 +2,7 @@ NAME = so_long
 BONUS_NAME = so_long_bonus
 CC = cc
 PRINTF = ./printf/libftprintf.a
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror 
 SRC = src/so_long.c src/check_content_wall.c src/check_route_rect.c \
 		src/drawmap.c src/hooks_closes.c src/check_collect_win.c\
 		src/move_right_left.c src/move_up_down.c\
@@ -10,7 +10,7 @@ SRC = src/so_long.c src/check_content_wall.c src/check_route_rect.c \
 BONUS_SRC = bonus/so_long_bonus.c bonus/check_content_wall.c bonus/check_route_rect.c \
 		bonus/drawmap.c bonus/hooks_closes.c bonus/check_collect_win.c\
 		bonus/move_right_left.c bonus/move_up_down.c bonus/ft_enemy_move.c\
-		bonus/draw_move_window.c\
+		bonus/draw_move_window.c bonus/load_animation.c\
 
 UTIL_SRC = 	utils/ft_strdup.c utils/get_next_line.c utils/get_next_line_utils.c \
 		utils/ft_strncmp.c utils/ft_itoa.c utils/ft_strcpy.c
@@ -49,7 +49,6 @@ $(BONUS_NAME): $(BONUS_OBJ) $(PRINTF) $(HEAD_BONUS) $(UTIL_OBJ)
 
 $(PRINTF):
 	@$(MAKE) -C ./printf -f Makefile all
-	@$(MAKE) -C ./printf -f Makefile clean
 
 clean:
 	@rm -rf $(SRC_OBJ) $(BONUS_OBJ) $(UTIL_OBJ)

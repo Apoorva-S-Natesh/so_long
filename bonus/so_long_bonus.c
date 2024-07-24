@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asomanah <asomanah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:49:41 by asomanah          #+#    #+#             */
-/*   Updated: 2024/07/08 13:56:34 by asomanah         ###   ########.fr       */
+/*   Updated: 2024/07/12 17:48:49 by asomanah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,12 @@ void	read_map(char **argv, t_map *map)
 	while (map->j < map->i)
 	{
 		map->str[map->j] = get_next_line(map->fd);
+		ft_printf("\033[1;96m%s\033[0m", map->str[map->j]);
 		map->j++;
 	}
 	map->str[map->j] = NULL;
 	close(map->fd);
+	ft_printf("\n");
 }
 
 int	check_lines(char **argv, t_map *map)

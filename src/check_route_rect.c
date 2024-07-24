@@ -77,7 +77,7 @@ void	ft_backtracking(t_map *map)
 	while (map->str[map->i])
 	{
 		map->j = 0;
-		while (map->str[map->i][map->j])
+		while (map->str[map->i][map->j++])
 		{
 			if (map->str[map->i][map->j] == 'C' || 
 				map->str[map->i][map->j] == 'E')
@@ -87,12 +87,12 @@ void	ft_backtracking(t_map *map)
 				{
 					ft_close_cpy(map);
 					ft_printf("ERROR <Collectible or exit is stuck>\n");
+					ft_closemap(map);
 					exit(1);
 				}
 				ft_close_cpy(map);
 				ft_copymap(map);
 			}
-			map->j++;
 		}
 		map->i++;
 	}

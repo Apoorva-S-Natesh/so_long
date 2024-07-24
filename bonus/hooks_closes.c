@@ -6,7 +6,7 @@
 /*   By: asomanah <asomanah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:33:32 by asomanah          #+#    #+#             */
-/*   Updated: 2024/07/08 13:02:35 by asomanah         ###   ########.fr       */
+/*   Updated: 2024/07/12 12:49:06 by asomanah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,27 @@
 
 int	on_destroy(t_map *map)
 {
-	mlx_destroy_window(map->mlx, map->win);
-	mlx_destroy_display(map->mlx);
+	mlx_destroy_image(map->mlx, map->pl);
+	mlx_destroy_image(map->mlx, map->wall);
+	mlx_destroy_image(map->mlx, map->esc);
+	mlx_destroy_image(map->mlx, map->background);
+	mlx_destroy_image(map->mlx, map->collect);
+	mlx_destroy_image(map->mlx, map->reindeer);
 	ft_closemap(map);
-	exit(1);
+	if (map->anim.frames[0])
+		ft_free_frames(map);
+	if (map->win)
+	{
+		mlx_destroy_window(map->mlx, map->win);
+		map->win = NULL;
+	}
+	if (map->mlx)
+	{
+		mlx_destroy_display(map->mlx);
+		free(map->mlx);
+		map->mlx = NULL;
+	}
+	exit(0);
 	return (0);
 }
 
@@ -56,7 +73,6 @@ int	ft_closemap(t_map *map)
 		}
 	}
 	free(map->str);
-	exit(1);
 	return (0);
 }
 

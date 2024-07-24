@@ -44,7 +44,7 @@ int	ft_win(t_map *map)
 	ft_printf(" \\ \\/\\/ /  | | | .` | \n");
 	ft_printf("  \\_/\\_/  |___||_|\\_| \n");
 	ft_printf("                      \n");
-	ft_closemap(map);
+	on_destroy(map);
 	exit (1);
 	return (0);
 }

@@ -87,6 +87,7 @@ void	ft_backtracking(t_map *map)
 				{
 					ft_close_cpy(map);
 					ft_printf("ERROR <Collectible or exit is stuck>\n");
+					ft_closemap(map);
 					exit(1);
 				}
 				ft_close_cpy(map);

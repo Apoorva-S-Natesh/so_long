@@ -6,7 +6,7 @@
 /*   By: asomanah <asomanah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:42:15 by asomanah          #+#    #+#             */
-/*   Updated: 2024/07/08 16:01:17 by asomanah         ###   ########.fr       */
+/*   Updated: 2024/07/12 13:59:28 by asomanah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,34 +25,42 @@
 #  define BUFFER_SIZE 1
 # endif
 
+typedef struct s_animation
+{
+	void	*frames[17];
+	int		f_height;
+	int		f_width;
+}			t_animation;
+
 typedef struct b_map
 {
-	int		i;
-	int		j;
-	int		fd;
-	int		len;
-	char	**str;
-	char	*buff;
-	int		collectible;
-	int		player;
-	int		escape;
-	int		enemy;
-	char	**copy_str;
-	void	*mlx;
-	void	*win;
-	void	*pl;
-	void	*background;
-	void	*esc;
-	void	*collect;
-	void	*wall;
-	void	*reindeer;
-	int		width;
-	int		height;
-	int		x;
-	int		y;
-	int		move;
-	int		player_i;
-	int		player_j;
+	int			i;
+	int			j;
+	int			fd;
+	int			len;
+	char		**str;
+	char		*buff;
+	int			collectible;
+	int			player;
+	int			escape;
+	int			enemy;
+	char		**copy_str;
+	void		*mlx;
+	void		*win;
+	void		*pl;
+	void		*background;
+	void		*esc;
+	void		*collect;
+	void		*wall;
+	void		*reindeer;
+	int			width;
+	int			height;
+	int			x;
+	int			y	;
+	int			move;
+	int			player_i;
+	int			player_j;
+	t_animation	anim;
 }			t_map;
 
 //----- UTIL FUNCTIONS -----//
@@ -116,5 +124,10 @@ void	ft_horizontal_movement(t_map *map, int i, int j);
 void	find_player(t_map *map);
 int		ft_abs(int value);
 void	ft_update_enemy(t_map *map);
+void	ft_load_animation(t_map *map);
+void	ft_load_frames1(t_map *map);
+void	ft_load_frames2(t_map *map);
+void	ft_free_frames(t_map *map);
+void	ft_play_animation(t_map *map);
 
 #endif

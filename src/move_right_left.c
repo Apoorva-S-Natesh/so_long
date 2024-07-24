@@ -31,7 +31,7 @@ void	ft_move_right2(t_map *map, int i, int j)
 	{
 		if (map->str[i][j] == 'P')
 		{
-			if (map->str[i][j + 1] == '0')
+			if (map->str[i][j + 1] == '0' || map->str[i][j + 1] == 'C')
 			{
 				map->str[i][j + 1] = 'P';
 				map->str[i][j] = '0';
@@ -79,7 +79,7 @@ void	ft_move_left(t_map *map)
 		{
 			if (map->str[i][j] == 'P')
 			{
-				if (map->str[i][j - 1] == '0')
+				if (map->str[i][j - 1] == '0' || map->str[i][j - 1] == 'C')
 				{
 					map->str[i][j - 1] = 'P';
 					map->str[i][j] = '0';
@@ -96,13 +96,7 @@ void	ft_move_left(t_map *map)
 
 void	ft_move_left2(t_map *map, int i, int j)
 {
-	if (map->str[i][j - 1] == 'C')
-	{
-		map->str[i][j - 1] = 'P';
-		map->str[i][j] = '0';
-		ft_printf("MOVES : %d \n", ++map->move);
-	}
-	else if (map->str[i][j - 1] == 'E')
+	if (map->str[i][j - 1] == 'E')
 	{
 		if ((ft_check_collect(map)) == 0)
 		{
