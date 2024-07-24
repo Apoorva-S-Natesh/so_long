@@ -29,4 +29,5 @@ Installation
 Clone the repo and install the minilibx library by running the config file in the folder if working with linux system.
 Then run make and once the executable is created, the game can be launched like
 ./so_long ./maps/map3.ber
+To play the bonus level run make bonus
 Enjoy the game 🎅
